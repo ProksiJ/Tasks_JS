@@ -1,14 +1,4 @@
-function request(urls){
-    console.time('request')
-    let requests = urls.map(url => fetch(url));
-    Promise.all(requests)
-        .then(responses => responses.forEach(
-        response => console.log(`${response.url}: ${response.status}`)
-    ));
-    console.timeEnd('request')
-}
-
-const url = [
+const urls = [
     'http://www.json-generator.com/api/json/get/cevhxOsZnS',
     'http://www.json-generator.com/api/json/get/cguaPsRxAi',
     'http://www.json-generator.com/api/json/get/cfDZdmxnDm',
@@ -16,4 +6,6 @@ const url = [
     'http://www.json-generator.com/api/json/get/ceQMMKpidK'
 ];
 
-request(url)
+let request = () => Promise.all(urls.map(url => fetch(url)))
+    .then(responses => console.log(responses))
+request()
