@@ -1,11 +1,5 @@
-const number = 12345
-let array = []
-let arrayInd = []
-/*for(let i = 0; i < number.toString().length;i++){
-    array.push((number.toString().substring(i,i+1)))
-}*/
-array = number.toString().split("")
-array.forEach(element => {
-    arrayInd.push(array.indexOf(element).toString())
-});
-console.log(arrayInd.reverse())
+const numbers = 12345
+let arrayOfNum = numbers.toString().split("")
+//нужно вывести массив строк из чисел в numbers или индексов этих цифр?
+console.log(numbers.toString().split("").reverse().filter(number => number.toString()))
+console.log(arrayOfNum.map((number)=>{return arrayOfNum.indexOf(number).toString()}).reverse())
