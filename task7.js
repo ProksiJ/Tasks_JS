@@ -1,7 +1,6 @@
 function delay(delay){
-    return new Promise((resolve, reject) => {
-        setTimeout(() => resolve(value), delay);
+    return new Promise((resolve) => {
+        setTimeout(() => resolve(delay), delay);
       });
 }
-let value = 10
-delay(3000).then(value => console.log(`Done with ${value}`));
+delay(1000).then(value => console.log(`Done with ${value}`));
