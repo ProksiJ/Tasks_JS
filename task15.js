@@ -1,22 +1,19 @@
-function anagrams(input){
-    let temp = [], anagrams = [], array = [...input] 
-    array.forEach(element => {
-        let word = element.split('').sort().join('');
-        temp = array.filter(function (e) {
-                return e.split('').sort().join('') === word;
-            }) 
-            anagrams.push(temp)
+function anagrams(words) {
+    const anagrams = {};
+    const arr = [];
+
+    words.forEach((word) => {
+        const sortedWord = word.split('').sort().join('');
+
+        if (anagrams[sortedWord]) {
+            anagrams[sortedWord].push(word);
+        } else {
+            anagrams[sortedWord] = [word];
+            arr.push(anagrams[sortedWord]);
+        }
     });
-    for(let i = 0; i < anagrams.length; i++){
-        anagrams[i] = String(anagrams[i])
-    }
 
-    let set = Array.from(new Set(anagrams))
-    for(let i = 0; i < set.length; i++){
-        set[i] = set[i].split(",")
-    };
-
-    return set
+    return arr;
 }
 const input = [
     'вертикаль',
@@ -28,5 +25,5 @@ const input = [
     'кластер',
     'сталкер',
     'стрелка'
-  ];
-  console.log(anagrams(input))
+];
+console.log(anagrams(input))
