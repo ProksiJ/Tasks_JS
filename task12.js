@@ -1,5 +1,6 @@
+//неуверена как правильно это можно сделать 
 Array.prototype.duplicate = function(){
-    return [...this]
+    return JSON.parse(JSON.stringify(this))
 }
 
 let a = [1,2,3]
